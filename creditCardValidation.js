@@ -2,11 +2,14 @@ function isNumberValid(number) {
 
     if(typeof number !== 'number')
         throw new Error('You should pass a number');
+
+    if(number.toString().length !== 16)
+        return false;
     
-    const sum = doubleOddDigitFromArray(
-        getNumberAsArray(number).reverse()
-    )
-    .reduce(sumValues, 0);
+    const sum = getNumberAsArray(number)
+        .reverse()
+        .map(doubleOddDigit)    
+        .reduce(sumValues, 0);
 
     return sum % 10 === 0;
 }
@@ -19,17 +22,15 @@ function getNumberAsArray(value) {
         .map(digit => Number(digit));
 }
 
-function doubleOddDigitFromArray(array) {
-
-    return array.map(
-        (digit, index) => index % 2 === 0 
-            ? digit
-            : digit * 2
-    );
+function doubleOddDigit(digit, index) {
+    
+    return index % 2 === 0
+        ? digit
+        : digit * 2
 }
 
 function sumValues(accumulator, value) {
-    
+
     return accumulator + (
         value <= 9
             ? value
