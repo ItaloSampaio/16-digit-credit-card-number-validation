@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const creditCardChecker = require('../creditCardValidation');
 
-describe('creditCardChecker', () => {
+describe('creditCardValidation', () => {
     
     describe('#isNumberValid', () => {
 
