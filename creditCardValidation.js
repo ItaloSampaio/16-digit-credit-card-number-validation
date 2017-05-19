@@ -1,4 +1,4 @@
-function isNumberValid(number) {
+function isValidNumber(number) {
 
     if(typeof number !== 'number')
         throw new Error('You should pass a number');
@@ -39,5 +39,5 @@ function sumValues(accumulator, value) {
 }
 
 module.exports = {
-    isNumberValid
+    isValidNumber
 }

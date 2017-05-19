@@ -3,40 +3,40 @@ const creditCardChecker = require('../creditCardValidation');
 
 describe('creditCardValidation', () => {
     
-    describe('#isNumberValid', () => {
+    describe('#isValidNumber', () => {
 
         it('should return false whether the number is not valid', () => {
             
             expect(
-                creditCardChecker.isNumberValid(4012888888881882)
+                creditCardChecker.isValidNumber(4012888888881882)
             ).to.be.false;
         });
 
         it('should return true whether the number is valid', () => {
             
             expect(
-                creditCardChecker.isNumberValid(4012888888881881)
+                creditCardChecker.isValidNumber(4012888888881881)
             ).to.be.true;
         });
 
         it('should return false whether the number length is greather than 16', () => {
             
             expect(
-                creditCardChecker.isNumberValid(40128888888818825)
+                creditCardChecker.isValidNumber(40128888888818825)
             ).to.be.false;
         });
 
         it('should return false whether the number length is less than 16', () => {
             
             expect(
-                creditCardChecker.isNumberValid(1313)
+                creditCardChecker.isValidNumber(1313)
             ).to.be.false;
         });
 
         it('should throw an error whether the param is not a Number', () => {
             
             expect(
-                creditCardChecker.isNumberValid.bind(
+                creditCardChecker.isValidNumber.bind(
                     creditCardChecker, 'param'
                 )
             ).to.throw(Error);
@@ -45,7 +45,7 @@ describe('creditCardValidation', () => {
         it('should throw an error whether the param is not defined', () => {
 
             expect(
-                creditCardChecker.isNumberValid.bind(creditCardChecker)
+                creditCardChecker.isValidNumber.bind(creditCardChecker)
             ).to.throw(Error);
         });
     });
